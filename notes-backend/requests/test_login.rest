@@ -1,0 +1,46 @@
+POST http://localhost:3001/api/login/
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "test"
+}
+
+### Create new user
+POST http://localhost:3001/api/users/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+
+### Testing valid user
+POST http://localhost:3001/api/login/
+Content-Type: application/json
+
+{
+  "username": "root2",
+  "password": "salainen"
+}
+
+### Testing post creation without valid token 
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+//Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QyIiwiaWQiOiI2NTU3ZGVkZjEzYjQ0YmQ4MjNjMjAyYWIiLCJpYXQiOjE3MDAyODgzMjV9.jzjNNOFOkjcko_MFaw0RrQDFZfBEwhvzdQY3OPjz1cg
+
+{
+  "content": "Single app page does not have Authorization token",
+  "important": true
+}
+
+### Testing post creation without valid token 
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QyIiwiaWQiOiI2NTU3ZGVkZjEzYjQ0YmQ4MjNjMjAyYWIiLCJpYXQiOjE3MDAyODgzMjV9.jzjNNOFOkjcko_MFaw0RrQDFZfBEwhvzdQY3OPjz1cg
+
+{
+  "content": "Single app page does not have Authorization token",
+  "important": true
+}
